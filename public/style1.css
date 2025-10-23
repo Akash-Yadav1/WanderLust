@@ -1,0 +1,137 @@
+body {
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+/*Nav bar*/
+.navbar {
+  height: 4.5rem;
+  background-color: white;
+}
+
+.nav-link {
+  color: #000000 !important;
+}
+
+.fa-compass {
+  color: #ff0000;
+  font-size: 2rem;
+}
+
+/*Cards*/
+
+.card {
+  width: 20%;
+  height: 20rem;
+  margin: 2rem;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: none !important;
+}
+
+.card-img-top {
+  height: 100%;
+  object-fit: cover !important;
+  border-radius: 1rem !important;
+  width: 100% !important;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.3;
+}
+
+.submit-btn {
+  background-color: #000000 !important;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background-color: #ff0000 !important;
+  transition: background-color 0.3s;
+}
+
+/*For edit.ejs*/
+.edit-btn {
+  background-color: #000000 !important;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+/*Show page styling*/
+.listing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-page-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.list-delete-btn {
+  text-decoration: none;
+  background: none;
+  color: white;
+  border: none;
+}
+
+/*Footer*/
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}
+
+.f-info-links {
+  width: 100%;
+}
+
+.f-info-socials {
+  width: 100%;
+  font-size: 2rem;
+}
+
+.f-info {
+  height: 8rem;
+  display: flex;
+  background-color: #ebebeb;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  text-align: center;
+}

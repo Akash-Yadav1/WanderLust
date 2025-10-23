@@ -1,0 +1,151 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+.navbar {
+  height: 5rem;
+  background-color: white;
+}
+
+.nav-link {
+  color: #383636;
+}
+
+.listingCard {
+  width: 24%;
+  height: 25rem;
+  margin: 2rem;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  border: none;
+}
+
+.card-title a {
+  text-decoration: none;
+  color: black;
+}
+
+.card-img-top {
+  border-radius: 1rem;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 0;
+}
+
+.card-text {
+  font-weight: 400;
+}
+
+.card-img-overlay {
+  opacity: 0;
+}
+.card-img-overlay:hover {
+  opacity: 0.2;
+  background-color: white;
+}
+
+.add-btn {
+  border: none;
+}
+
+.show-img {
+  height: 30vh;
+}
+
+.submit-btn {
+  background-color: #000000 !important;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+.submit-btn:hover {
+  background-color: #ff0000 !important;
+  transition: background-color 0.3s;
+}
+
+/*For edit.ejs*/
+.edit-btn {
+  background-color: #000000 !important;
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+
+/*Show page styling*/
+.listing-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-around;
+}
+
+.edit-page-btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.list-delete-btn {
+  text-decoration: none;
+  background: none;
+  color: white;
+  border: none;
+}
+
+.listingRow {
+  justify-content: center;
+}
+
+/* Footer */
+.fa-compass {
+  color: #ce2626;
+  font-size: 2rem;
+}
+
+.f-info {
+  display: flex;
+  height: 8rem;
+  background-color: #a1a5aa;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.f-info-links,
+.f-info-social,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.f-info-social i {
+  font-size: 1.2rem;
+  margin-right: 1rem;
+}
+
+.f-info-links a {
+  text-decoration: none;
+  color: #222222;
+}
+
+.f-info-links a:hover {
+  text-decoration: underline;
+}

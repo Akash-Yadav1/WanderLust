@@ -1,0 +1,83 @@
+<% layout("/layouts/boilerplate") -%>
+<body>
+  <h3>Edit the listing: <%= listing.title%></h3>
+  <div class="col-8 offset-2">
+    <form
+      action="/listings/<%=listing._id%>?_method=PUT"
+      method="post"
+      novalidate
+      class="needs-validation"
+    >
+      <div class="mb-3">
+        <Label for="title" class="form-label">Title:</Label>
+        <input
+          type="text"
+          name="listing[title]"
+          id="title"
+          class="form-control"
+          value="<%= listing.title %>"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <Label for="desc" class="form-label">Description:</Label>
+        <textarea
+          name="listing[description]"
+          id="desc"
+          class="form-control"
+          required
+        >
+<%= listing.description %></textarea
+        >
+      </div>
+      <div class="mb-3">
+        <Label for="img" class="form-label">Image Link:</Label>
+        <input
+          type="text"
+          name="listing[image]"
+          id="img"
+          class="form-control"
+          value="<%= listing.image %>"
+          required
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-4">
+          <Label for="price" class="form-label">Price:</Label>
+          <input
+            type="number"
+            name="listing[price]"
+            id="price"
+            class="form-control"
+            value="<%= listing.price %>"
+            required
+          />
+        </div>
+        <div class="mb-3 col-8">
+          <Label for="country" class="form-label">Country</Label>
+          <input
+            type="text"
+            name="listing[country]"
+            id="country"
+            class="form-control"
+            value="<%= listing.country %>"
+            required
+          />
+        </div>
+      </div>
+      <div class="mb-3">
+        <Label for="location" class="form-label">Location</Label>
+        <input
+          type="text"
+          name="listing[location]"
+          id="location"
+          class="form-control"
+          value="<%= listing.location %>"
+          required
+        />
+      </div>
+      <button class="btn btn-dark add-btn">Edit</button>
+    </form>
+  </div>
+</body>
+<script src="/script.js"></script>

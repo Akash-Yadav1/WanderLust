@@ -1,0 +1,82 @@
+<% layout("/layouts/boilerplate") -%>
+
+<div class="row">
+  <div class="col-8 offset-2">
+    <h2>New Listing</h2>
+    <form action="/listings" method="post" novalidate class="needs-validation">
+      <div class="mb-3">
+        <Label for="title" class="form-label">Title:</Label>
+        <input
+          type="text"
+          name="listing[title]"
+          id="title"
+          class="form-control"
+          placeholder="Title"
+          required
+        />
+        <div class="invalid-feedback">Enter the Title</div>
+      </div>
+      <div class="mb-3">
+        <Label for="desc" class="form-label">Description:</Label>
+        <textarea
+          name="listing[description]"
+          id="desc"
+          class="form-control"
+          required
+          placeholder="Description"
+        ></textarea>
+        <div class="invalid-feedback">Enter the Description</div>
+      </div>
+      <div class="mb-3">
+        <Label for="img" class="form-label">Image Link:</Label>
+        <input
+          type="text"
+          name="listing[image]"
+          id="img"
+          class="form-control"
+          placeholder="Image url"
+        />
+      </div>
+      <div class="row">
+        <div class="mb-3 col-4">
+          <Label for="price" class="form-label">Price:</Label>
+          <input
+            name="listing[price]"
+            id="price"
+            placeholder="1800"
+            class="form-control"
+            required
+          />
+          <div class="invalid-feedback">Enter the valid Price</div>
+        </div>
+        <div class="mb-3 col-8">
+          <Label for="country" class="form-label">Country</Label>
+          <input
+            type="text"
+            name="listing[country]"
+            id="country"
+            class="form-control"
+            value="India"
+            onclick="this.setSelectionRange(0,this.value.length)"
+            required
+          />
+          <div class="invalid-feedback">Enter the Country name</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <Label for="location" class="form-label">Location</Label>
+        <input
+          type="text"
+          name="listing[location]"
+          id="location"
+          class="form-control"
+          required
+          placeholder="Location"
+        />
+        <div class="invalid-feedback">Enter the Location</div>
+      </div>
+      <br />
+      <button class="btn btn-dark add-btn">Add</button>
+    </form>
+  </div>
+</div>
