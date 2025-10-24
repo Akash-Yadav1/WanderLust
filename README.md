@@ -30,7 +30,7 @@ npm install
 Run the app:
 
 ```sh
-npm nodemon index.js
+nodemon index.js
 ```
 
 Open http://localhost:3000 (or the port configured in index.js).
