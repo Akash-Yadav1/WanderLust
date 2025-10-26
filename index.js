@@ -87,14 +87,14 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get("/demouser", async (req, res) => {
-  let fakeUser = new User({
-    email: "test@gamil.com",
-    username: "test",
-  });
-  let registerUser = await User.register(fakeUser, "helloworld");
-  res.send(registerUser);
-});
+// app.get("/demouser", async (req, res) => {
+//   let fakeUser = new User({
+//     email: "test@gamil.com",
+//     username: "test",
+//   });
+//   let registerUser = await User.register(fakeUser, "helloworld");
+//   res.send(registerUser);
+// });
 
 //Listing
 app.use("/listings", listingRoute);
