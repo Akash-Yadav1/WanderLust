@@ -12,22 +12,24 @@ const {
   logout,
 } = require("../controllers/userController.js");
 
-router.get("/signup", renderSignup);
+//signup
+router.route("/signup").get(renderSignup).post(wrapAsync(signup));
 
-router.post("/signup", wrapAsync(signup));
+//login
+router
+  .route("/login")
+  .get(renderLogin)
+  .post(
+    saveRedirectUrl,
+    passport.authenticate("local", {
+      failureRedirect: "/login",
+      failureFlash: true,
+    }),
+    wrapAsync(login)
+  );
 
-router.get("/login", renderLogin);
+//logout
 
-router.post(
-  "/login",
-  saveRedirectUrl,
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-    failureFlash: true,
-  }),
-  wrapAsync(login)
-);
-
-router.get("/logout", logout);
+router.route("/logout").get(logout);
 
 module.exports = router;

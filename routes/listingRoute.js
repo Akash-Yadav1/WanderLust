@@ -15,25 +15,24 @@ const {
 } = require("../controllers/listingController.js");
 
 //Index Route
-router.get("/", wrapAsync(index));
+router
+  .route("/")
+  .get(wrapAsync(index))
+  .post(isLoggedIn, validateListng, wrapAsync(createListing));
 
 //New Listig Route
-router.get("/new", isLoggedIn, (req, res) => {
+router.route("/new").get(isLoggedIn, (req, res) => {
   res.render("new.ejs");
 });
 
-//Create Route
-router.post("/", isLoggedIn, validateListng, wrapAsync(createListing));
-
 //Show Route
-router.get("/:id", wrapAsync(show));
+router
+  .route("/:id")
+  .get(wrapAsync(show))
+  .put(isOwner, wrapAsync(edit))
+  .delete(isLoggedIn, isOwner, wrapAsync(deleteListing));
 
 //Edit Route
-router.get("/:id/edit", isLoggedIn, isOwner, wrapAsync(renderEdit));
-
-router.put("/:id", isOwner, wrapAsync(edit));
-
-//Delete Route
-router.delete("/:id", isLoggedIn, isOwner, wrapAsync(deleteListing));
+router.route("/:id/edit").get(isLoggedIn, isOwner, wrapAsync(renderEdit));
 
 module.exports = router;

@@ -9,9 +9,11 @@ const { isAuthor } = require("../middleware/Owner.js");
 const { review, deleteReview } = require("../controllers/reviewController.js");
 
 //Post Review route
-router.post("/", isLoggedIn, validateReview, wrapAsync(review));
+router.route("/").post(isLoggedIn, validateReview, wrapAsync(review));
 
 //Delete Review route
-router.delete("/:reviewId", isLoggedIn, isAuthor, wrapAsync(deleteReview));
+router
+  .route("/:reviewId")
+  .delete(isLoggedIn, isAuthor, wrapAsync(deleteReview));
 
 module.exports = router;
