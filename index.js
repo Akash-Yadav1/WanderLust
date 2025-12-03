@@ -6,16 +6,18 @@ const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const ExpressError = require("./util/ExpressError.js");
 const session = require("express-session");
-const falsh = require("connect-flash");
+const MongoStore = require("connect-mongo").default;
+const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+require("dotenv").config();
 
 const listingRoute = require("./routes/listingRoute.js");
 const reviewRoute = require("./routes/reviewRoute.js");
 const userRoute = require("./routes/userRoute.js");
 
-const db_URL = "mongodb://127.0.0.1:27017/airbnb";
+const db_URL = process.env.ATLAS_DB;
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
@@ -24,8 +26,21 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 
+const store = MongoStore.create({
+  mongoUrl: db_URL,
+  crypto: {
+    secret: process.env.SECRETE,
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("error in mongo store", err);
+});
+
 const sessionOption = {
-  secret: "mysecretstring",
+  store,
+  secret: process.env.SECRETE,
   resave: false,
   saveUninitialized: true,
   cookie: {
@@ -36,7 +51,7 @@ const sessionOption = {
 };
 
 app.use(session(sessionOption));
-app.use(falsh());
+app.use(flash());
 
 app.use(passport.initialize());
 app.use(passport.session());
